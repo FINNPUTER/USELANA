@@ -79,7 +79,8 @@ img{display:block;max-width:100%}
 
 /* ===== HERO ===== */
 .hero{
-  min-height:100svh;padding-top:calc(var(--tape-h) + 24px);padding-bottom:40px;
+  min-height:100svh;padding-top:calc(var(--tape-h) + env(safe-area-inset-top) + 24px);padding-bottom:40px;
+  padding-left:env(safe-area-inset-left);padding-right:env(safe-area-inset-right);
   display:flex;flex-direction:column;align-items:center;justify-content:center;
   text-align:center;position:relative;
 }
@@ -197,6 +198,15 @@ footer span{display:block;margin-top:8px;opacity:0.5;font-weight:500;letter-spac
 
 /* ===== SPARK ===== */
 .spark{position:fixed;pointer-events:none;z-index:99;width:8px;height:8px;background:var(--ink);border-radius:2px}
+
+@media (orientation:landscape) and (max-height:700px){
+  .hero{min-height:auto;padding-top:calc(var(--tape-h) + env(safe-area-inset-top) + 14px);padding-bottom:22px}
+  .guy{width:min(22vw,148px)}
+  h1{font-size:clamp(2rem,7.5vw,3.4rem);-webkit-text-stroke-width:clamp(3px,0.8vw,6px)}
+  .pill{margin-top:10px;padding:8px 20px}
+  .tag{margin-top:12px}
+  .scroll-hint{display:none}
+}
 
 @media(prefers-reduced-motion:reduce){
   .guy{animation:none}
