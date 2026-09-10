@@ -270,6 +270,7 @@ footer span{display:block;margin-top:8px;opacity:0.5;font-weight:500;letter-spac
     <div class="btns">
       <a class="btn solid off" id="buyBtn" href="#" onclick="return notLive(event)">Buy $USELANA</a>
       <a class="btn off" id="chartBtn" href="#" onclick="return notLive(event)">Chart</a>
+      <a class="btn off" id="padBtn" href="#" onclick="return notLive(event)">StonkFun</a>
       <a class="btn off" id="xBtn" href="#" onclick="return notLive(event)">Follow on X</a>
     </div>
   </div>
@@ -330,14 +331,16 @@ footer span{display:block;margin-top:8px;opacity:0.5;font-weight:500;letter-spac
        ca    : Contract Address
        buy   : Kauf Link
        chart : Chart Link
+       pad   : Launchpad Link
        x     : X Profil Link
      Sonst nichts anfassen, die Seite schaltet sich selbst scharf.
      ============================================================ */
   var LAUNCH = {
     live:  true,
     ca:    "G6Ggj74b76ESaSm39CBb8BPoYv5mLL3BJazyHuJsiNpq",
-    buy:   "",
+    buy:   "https://jup.ag/?sell=So11111111111111111111111111111111111111112&buy=G6Ggj74b76ESaSm39CBb8BPoYv5mLL3BJazyHuJsiNpq",
     chart: "https://dexscreener.com/solana/G6Ggj74b76ESaSm39CBb8BPoYv5mLL3BJazyHuJsiNpq",
+    pad:   "https://www.stonkfun.xyz/token/G6Ggj74b76ESaSm39CBb8BPoYv5mLL3BJazyHuJsiNpq",
     x:     ""
   };
 
@@ -372,7 +375,7 @@ footer span{display:block;margin-top:8px;opacity:0.5;font-weight:500;letter-spac
     if(ca&&LAUNCH.ca){ca.textContent=LAUNCH.ca;ca.classList.remove('pending');ca.classList.add('live');ca.onclick=copyCA;}
     var n=document.getElementById('caNote');
     if(n)n.textContent='Tap to copy. Verify against the pinned post on X.';
-    [['buyBtn',LAUNCH.buy],['chartBtn',LAUNCH.chart],['xBtn',LAUNCH.x],['xBtn2',LAUNCH.x]].forEach(function(p){
+    [['buyBtn',LAUNCH.buy],['chartBtn',LAUNCH.chart],['padBtn',LAUNCH.pad],['xBtn',LAUNCH.x],['xBtn2',LAUNCH.x]].forEach(function(p){
       var el=document.getElementById(p[0]);
       if(!el||!p[1])return;
       el.setAttribute('href',p[1]);el.setAttribute('target','_blank');el.setAttribute('rel','noopener');
